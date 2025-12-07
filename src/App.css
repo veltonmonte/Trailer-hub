@@ -14,21 +14,20 @@ body {
 }
 
 /*=============MOVIES LISTS=============*/
-
 .categorias_list_movies {
   margin: 30px;
   margin-left: auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 30px;
-  margin-top: 50px;
   gap: 5px;
+  margin-top: 50px;
 }
 
 /*======================================*/
-
 /*======HEADER======*/
+
+/* HEADER ------------------------------------------------------ */
 
 .header {
   display: flex;
@@ -44,7 +43,10 @@ body {
   z-index: 1000;
   padding: 0 20px;
   border-radius: 15px;
-  overflow: hidden;
+
+  /* CORREÇÃO IMPORTANTE */
+  overflow: visible;
+
   transition: 0.5s;
 }
 
@@ -72,8 +74,8 @@ body {
 }
 
 .User img:hover {
-  filter: brightness(0) saturate(100%) invert(19%) sepia(91%) saturate(7480%)
-    hue-rotate(268deg) brightness(94%) contrast(101%);
+  filter: brightness(0) saturate(100%) invert(19%) sepia(91%) 
+    saturate(7480%) hue-rotate(268deg) brightness(94%) contrast(101%);
   cursor: pointer;
 }
 
@@ -104,13 +106,10 @@ body {
 
 .Header_link {
   text-decoration: none;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: white;
   font-size: 15px;
   font-weight: 500;
-  cursor: pointer;
   font-family: "Inter", "Roboto", sans-serif;
-  width: 100%;
   transition: 0.3s;
 }
 
@@ -143,15 +142,73 @@ body {
   justify-content: center;
   align-items: center;
   margin: 20px;
-  transition: 0.5s;
   height: 100px;
   width: 200px;
   margin-top: 15px;
+  transition: 0.3s;
 }
 
 .logo:hover {
   transform: scale(1.2);
 }
+
+/* WRAPPER DO ITEM GÊNEROS -------------------------------------- */
+
+.generos-wrapper {
+  position: relative;
+  display: block; /* garante hover consistente */
+}
+
+/* CARD --------------------------------------------------------- */
+
+.Card_container {
+  position: absolute;
+  top: 75px;
+  left: 12px;
+  width: 500px;
+  height: auto;
+  padding: 15px;
+  background: whitesmoke;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 10px 15px #00000080;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition: 0.25s ease;
+  -webkit-text-fill-color: #080808;
+}
+
+.Card_container::before {
+  content: "";
+  position: absolute;
+  top: -10px;       /* sobe a pontinha */
+  left: 20px;       /* posição horizontal da ponta */
+  width: 0;
+  height: 0;
+
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid whitesmoke;  /* mesma cor do card */
+}
+
+.Generos_card ul {
+  display: flex;
+  flex-wrap: wrap;   /* permite quebra */
+  gap: 10px;         /* espaço entre os itens */
+  padding: 0;
+  margin: 0;
+}
+
+
+.generos-wrapper:hover .Card_container {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+
+
 
 /*======HEADER VIDEO======*/
 
@@ -544,7 +601,7 @@ main {
 }
 
 .item_genero h3{
-  font-size: 20px;
+  font-size: 15px;
   margin-top: 10px;
   font-family: "Roboto Slab", serif;
   -webkit-text-fill-color: rgb(255, 255, 255);
