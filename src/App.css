@@ -508,24 +508,115 @@ main {
 /*======MEDIA QUERIES MOBILE======*/
 @media (min-width: 320px) and (max-width: 768px) {
   /*----- Header -----*/
-
-  .header h1 {
-    font-size: 25px;
-  }
-
-  .header ul {
-    gap: 5px;
+  .header {
+    margin-top: 10px;
+    width: 98%;
+    height: 50px;
   }
 
   .header li {
-    font-size: 12px;
-    margin: 0 8px;
+    min-width: 48px;
+    height: 48px;
+  }
+
+  .header:hover {
+    transform: translateX(-50%) scale(1);
+  }
+
+  .header_item_menu {
+    position: relative;
+    right: 155%;
+    top: 20%;
+    font-size: small;
+    width: 35px;
+    margin: 0 0 20px 0;
+  }
+
+  .generos-wrapper {
+    position: relative;
+  }
+.Card_container{
+  position: absolute;
+  top: 60px;
+  left: -100px;
+  width: 150px;
+  transition: 0.25s ease;
+}
+
+.generos-wrapper:hover .Card_container {
+  left: 0 !important;
+  width: 200px;
+}
+
+/* SETA */
+.Card_container::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 20px;            /* NÃO use -100px aqui */
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid whitesmoke;
+}
+
+/* CORREÇÃO DO HOVER DO MENU */
+.header li:hover .header_item_menu {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #8400ff;
+  border-radius: 6px;
+  box-shadow: none;
+  transform: none !important;
+}
+
+.generos-wrapper {
+  position: relative;
+  z-index: 10;
+}
+
+.header_item_menu {
+  position: relative;
+  z-index: 9;
+}
+
+
+  .menu {
+    width: 60px;
+    height: 60px;
+    margin-left: 2px;
+    margin-top: 0;
+  }
+
+  .User {
+    width: 30px;
+    height: 30px;
+    margin: 0;
+    margin-left: 5px;
+  }
+
+  .User img {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+  }
+
+  .logo {
+    width: 80px;
+    height: 100px;
+    margin: 0;
+  }
+
+  .logo img {
+    width: 100px;
+    height: 100px;
+    margin: 0;
   }
 
   /*----- Header Video -----*/
 
   .header-image {
-    height: 300px;
+    height: 200px;
   }
 
   /*----- Popular Movies -----*/
@@ -538,15 +629,16 @@ main {
   }
 
   .movie-list {
-    padding: 5px 0;
     margin-top: 0;
-    height: 180px;
+    margin-bottom: 0;
+    height: 120px;
   }
 
   .movie-item {
-    flex: 0 0 250px;
-    height: 130px;
-    margin-top: 10px;
+    flex: 0 0 150px;
+    height: 90px;
+    margin-left: 0;
+    margin-right: 5px;
   }
 
   .arrowRight,
@@ -554,6 +646,7 @@ main {
     height: 130px;
     width: 40px;
     top: 55%;
+    margin-left: 10px;
   }
 
   .arrowRight img,
@@ -647,24 +740,22 @@ main {
 }
 
 @keyframes card_animation_open {
-  0%{
+  0% {
     opacity: 0;
   }
-  100%{
+  100% {
     opacity: 1;
   }
 }
 
 @keyframes card_animation_close {
-  0%{
+  0% {
     opacity: 1;
   }
-  100%{
+  100% {
     opacity: 0;
   }
 }
-
-
 
 .card_movie_content {
   position: absolute;
@@ -759,9 +850,76 @@ main {
   cursor: pointer;
 }
 
-.Classificacao {
-  background-color: rgb(245, 245, 245);
+.Classificacao_content {
+  position: relative;
+  right: 35%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-top: 10px;
   font-size: 18px;
   font-weight: bold;
+  gap: 10px;
+  margin: auto;
+}
+
+.green {
+  background-color: rgb(18, 143, 34);
+  display: flex;
+  justify-content: center;
+
+  width: 30px;
+  height: 30px;
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.yellow {
+  background-color: rgb(255, 223, 0);
+  display: flex;
+  justify-content: center;
+
+  width: 30px;
+  height: 30px;
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.gray {
+  background-color: rgb(53, 53, 53);
+  display: flex;
+  justify-content: center;
+
+  width: 30px;
+  height: 30px;
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.red {
+  background-color: rgb(255, 0, 0);
+  display: flex;
+  justify-content: center;
+
+  width: 30px;
+  height: 30px;
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.Classificacao_content p {
+  color: white;
+  margin: auto;
 }

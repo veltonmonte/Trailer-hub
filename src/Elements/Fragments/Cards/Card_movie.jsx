@@ -1,6 +1,15 @@
 function Card_movie({ movie, onClose }) {
   if (!movie) return null;
 
+
+
+  function getClassificacaoColor(classificacao) {
+    if (classificacao <= 12) return "green" ;
+    if (classificacao > 12 && classificacao <= 16) return "yellow";
+    if (classificacao === 17) return "red";
+    if (classificacao === 18) return "gray";
+  }
+
   return (
     <div className="card">
       <div className="card_movie">
@@ -21,8 +30,10 @@ function Card_movie({ movie, onClose }) {
             <div className="overlay_card_movie"></div>
           </div>
           <div className="card_movie_info">
-
-              <div>Classificação:<div className="Classisficacao">{movie.classificacao}</div></div>
+            <div className="Classificacao_content">
+              Classificação:
+              <div className={getClassificacaoColor(movie.Classificacao)}><p>{movie.Classificacao}</p></div>
+            </div>
             <h3>{movie.titulo}</h3>
             <p>{movie.descricao}</p>
           </div>
