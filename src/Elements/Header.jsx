@@ -9,7 +9,6 @@ function Header() {
   return (
     <>
       <header className="header">
-        
         <Link to="/" className="logo">
           <div className="header_logo">
             <img src="Imgs/logotrailerhub.png" alt="logo" />
@@ -18,29 +17,21 @@ function Header() {
 
         <nav>
           <ul className="menu">
-
-            {/* AQUI É O QUE IMPORTA */}
             <li
               className="generos-wrapper"
               onMouseEnter={() => setShowCard(true)}
               onMouseLeave={() => setShowCard(false)}
             >
-              <Link className="Header_link" id="Generos_header" to="/Genero">
-                Gêneros
-              </Link>
+              <div className="header_item_menu">Gêneros</div>
 
-              {showCard && <Card_Genero />} 
+              {showCard && <Card_Genero />}
             </li>
 
             <li>
-              <Link className="Header_link" to="/Contatos">
-                Contatos
-              </Link>
+              <div className="header_item_menu">Contatos</div>
             </li>
             <li>
-              <Link className="Header_link" to="/Pesquisar">
-                Pesquisar
-              </Link>
+              <div className="header_item_menu">Pesquisar</div>
             </li>
           </ul>
         </nav>

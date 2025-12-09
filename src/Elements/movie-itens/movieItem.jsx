@@ -1,10 +1,12 @@
-function MovieItem({ img, titulo }) {
+function MovieItem({ movie, onClick }) {
   return (
-    <div className="movie-item">
-      <a href={`player.html?id=${titulo}`}>
-        <img src={img} alt={titulo} />
-      </a>
-    </div>
+    <img
+      className="movie-item"
+      src={movie.img}
+      alt={movie.titulo}
+      onClick={() => onClick(movie)}
+    />
   );
 }
+
 export default MovieItem;
